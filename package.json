@@ -1,0 +1,7 @@
+{
+  "name": "surf-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:valdineifer/surf-api.git",
+  "license": "MIT"
+}
