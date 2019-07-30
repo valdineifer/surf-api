@@ -3,7 +3,6 @@ const { env } = process;
 
 const express = require("express");
 const routes = require("./routes");
-const Sequelize = require("sequelize");
 
 const app = express();
 const port = 3000;

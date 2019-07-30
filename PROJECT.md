@@ -3,7 +3,7 @@
 ## Funcionalidades
 * [ ] Inserir e excluir surfistas
 * [ ] Alterar nome e país de um surfista
-* [ ] Obter todos os surfistas cadastrados
+* [x] Obter todos os surfistas cadastrados
 * [ ] Obter todos os surfistas de determinado país
 * [ ] Criar novas baterias
 * [ ] Cadastrar novas ondas em uma bateria
