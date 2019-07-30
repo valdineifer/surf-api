@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable("Surfista", {
-      id: {
+      numero: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,

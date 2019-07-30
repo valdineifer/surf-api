@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: "Surfista",
-          key: "id"
+          key: "numero"
         }
       },
       surfista2_id: {
@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: "Surfista",
-          key: "id"
+          key: "numero"
         }
       },
       createdAt: {
