@@ -1,18 +1,18 @@
 # Surf API
 
 ## Funcionalidades
-* Inserir e excluir surfistas
-* Alterar nome e país de um surfista
-* Obter todos os surfistas cadastrados
-* Obter todos os surfistas de determinado país
-* Criar novas baterias
-* Cadastrar novas ondas em uma bateria
-* Cadastrar novas notas em uma onda
-* Obter o vencedor de uma bateria
+* [ ] Inserir e excluir surfistas
+* [ ] Alterar nome e país de um surfista
+* [x] Obter todos os surfistas cadastrados
+* [ ] Obter todos os surfistas de determinado país
+* [ ] Criar novas baterias
+* [ ] Cadastrar novas ondas em uma bateria
+* [ ] Cadastrar novas notas em uma onda
+* [ ] Obter o vencedor de uma bateria
 
 ## Regras de Negócio
-* Uma Nota consiste na média aritmética das 3 notas parciais que a compõem
-* O vencedor de uma Bateria é o Surfista cuja soma das duas maiores Notas for superior à do outro
+* [ ] Uma Nota consiste na média aritmética das 3 notas parciais que a compõem
+* [ ] O vencedor de uma Bateria é o Surfista cuja soma das duas maiores Notas for superior à do outro
 
 ## Requisitos
 * Todas as funcionalidades devem ser implementadas sob o paradigma Rest, pfv...
