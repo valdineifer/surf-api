@@ -20,10 +20,19 @@ module.exports = {
     }
 
     const surfistas = await Surfista.findAll({
-      attributes: ['numero', 'nome', 'pais'], // Omite campos timestamp
+      attributes: ["numero", "nome", "pais"], // Omite campos timestamp
       ...paginate(page, pageSize)
     });
 
     res.json(surfistas);
+  },
+
+  async store(req, res) {
+    const surfista = await Surfista.findOrCreate({ where: { ...req.body } });
+
+    // surfista[1] -> se 'false', não foi criado porque já existe
+    if (surfista[1]) res.json(surfista);
+
+    res.status(400).json({ erro: "Este usuário já foi criado anteriormente" });
   }
 };

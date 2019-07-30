@@ -8,5 +8,6 @@ router.get("/", (req, res) => {
 });
 
 router.get("/surfistas", SurfistaController.index);
+router.post("/surfistas", SurfistaController.store);
 
 module.exports = router;

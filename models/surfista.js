@@ -5,11 +5,19 @@ module.exports = (sequelize, DataTypes) => {
     "Surfista",
     {
       numero: {
-        type: DataTypes.INTEGER,
-        primaryKey: true
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER
       },
-      nome: DataTypes.STRING,
-      pais: DataTypes.STRING
+      nome: { 
+        defaultValue: false,
+        type: DataTypes.STRING
+      },
+      pais: { 
+        defaultValue: false,
+        type: DataTypes.STRING
+      }
     },
     {}
   );

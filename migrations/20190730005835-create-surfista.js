@@ -11,10 +11,12 @@ module.exports = {
       },
       nome: {
         type: Sequelize.STRING,
+        defaultValue: false,
         allowNull: false
       },
       pais: {
         type: Sequelize.STRING,
+        defaultValue: false,
         allowNull: false
       },
       createdAt: {
