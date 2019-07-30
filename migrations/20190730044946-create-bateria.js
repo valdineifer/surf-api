@@ -2,20 +2,28 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Surfista", {
+    return queryInterface.createTable("Bateria", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nome: {
-        type: Sequelize.STRING,
-        allowNull: false
+      surfista1_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Surfista",
+          key: "id"
+        }
       },
-      pais: {
-        type: Sequelize.STRING,
-        allowNull: false
+      surfista2_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Surfista",
+          key: "id"
+        }
       },
       createdAt: {
         allowNull: false,
@@ -28,6 +36,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Surfista");
+    return queryInterface.dropTable("Bateria");
   }
 };
