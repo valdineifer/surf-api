@@ -10,19 +10,29 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      nome: { 
+      nome: {
         defaultValue: false,
         type: DataTypes.STRING
       },
-      pais: { 
+      pais: {
         defaultValue: false,
         type: DataTypes.STRING
       }
     },
-    {}
+    { sequelize, modelName: "Surfista" }
   );
+
   Surfista.associate = function(models) {
-    // associations can be defined here
+    Surfista.hasMany(models.Bateria, {
+      foreignKey: "surfista1_id",
+      sourceKey: "numero",
+      as: "surfista1"
+    });
+    Surfista.hasMany(models.Bateria, {
+      foreignKey: "surfista2_id",
+      sourceKey: "numero",
+      as: "surfista2"
+    });
   };
   return Surfista;
 };

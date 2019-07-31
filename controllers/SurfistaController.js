@@ -1,5 +1,5 @@
 const sequelize = require("../database");
-const Surfista = sequelize.import("../models/surfista");
+const Surfista = sequelize.import("../models/Surfista");
 
 function paginate(page, pageSize) {
   const offset = (page - 1) * pageSize; // Decremento para cálculo
@@ -33,6 +33,6 @@ module.exports = {
     // surfista[1] -> se 'false', não foi criado porque já existe
     if (surfista[1]) res.json(surfista);
 
-    res.status(400).json({ erro: "Este usuário já foi criado anteriormente" });
+    res.status(400).json({ erro: "Este surfista já foi criado anteriormente" });
   }
 };

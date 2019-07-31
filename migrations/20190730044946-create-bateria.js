@@ -1,37 +1,40 @@
 "use strict";
 
+require("dotenv").config();
+const { env } = process;
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable("Bateria", {
       id: {
-        allowNull: false,
-        autoIncrement: true,
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        allowNull: false,
+        autoIncrement: true
       },
       surfista1_id: {
-        allowNull: false,
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: "Surfista",
           key: "numero"
         }
       },
       surfista2_id: {
-        allowNull: false,
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: "Surfista",
           key: "numero"
         }
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       }
     });
   },
