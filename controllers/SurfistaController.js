@@ -36,6 +36,17 @@ module.exports = {
     // surfista[1] -> se 'false', não foi criado porque já existe
     if (surfista[1]) res.json(surfista);
 
-    res.status(400).json({ erro: "Este surfista já foi criado anteriormente" });
+    res.status(409).json({ erro: "Este surfista já foi criado anteriormente" });
+  },
+
+  async destroy(req, res) {
+    const wasDestroyed = await Surfista.destroy({
+      where: { numero: req.params.num }
+    });
+
+    if (wasDestroyed !== 0)
+      res.sendStatus(204);
+    
+    res.status(404).json({ erro: "Este surfista não está cadastrado." });
   }
 };

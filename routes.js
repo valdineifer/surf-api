@@ -10,6 +10,7 @@ router.get("/", (req, res) => {
 
 router.get("/surfistas", SurfistaController.index);
 router.post("/surfistas", SurfistaController.store);
+router.delete("/surfistas/:num", SurfistaController.destroy);
 
 router.get("/baterias", BateriaController.index);
 router.post("/baterias", BateriaController.store);

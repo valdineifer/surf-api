@@ -1,11 +1,11 @@
 # Surf API
 
 ## Funcionalidades
-* [ ] Inserir e excluir surfistas
+* [x] Inserir e excluir surfistas
 * [ ] Alterar nome e país de um surfista
 * [x] Obter todos os surfistas cadastrados
-* [ ] Obter todos os surfistas de determinado país
-* [ ] Criar novas baterias
+* [x] Obter todos os surfistas de determinado país
+* [x] Criar novas baterias
 * [ ] Cadastrar novas ondas em uma bateria
 * [ ] Cadastrar novas notas em uma onda
 * [ ] Obter o vencedor de uma bateria
@@ -19,3 +19,6 @@
 * O banco de dados é da sua escolha (MySQL, PostgreSQL etc.), use o que você achar melhor
 * Já seu código vai ter que ser na plataforma NodeJS, foi mal, mas é importante...
 * Qualquer framework para NodeJS (Express, Loopback, GraphQL, Sequelize etc.) pode ser usado, se jogue!
+
+## Opcionais
+* [ ] Adicionar escopos para queries/models, ver [documentação](https://sequelize.org/master/manual/scopes.html).
