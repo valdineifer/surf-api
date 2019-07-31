@@ -20,7 +20,7 @@ module.exports = {
     }
 
     const surfistas = await Surfista.findAll({
-      attributes: ["numero", "nome", "pais"], // Omite campos timestamp
+      attributes: { exclude: ['createdAt', 'updatedAt'] }, // Omite campos timestamp
       ...paginate(page, pageSize)
     });
 
