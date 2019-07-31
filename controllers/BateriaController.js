@@ -23,6 +23,9 @@ module.exports = {
     }
 
     const baterias = await Bateria.findAll({
+      attributes: { exclude: ["createdAt", "updatedAt"] },
+      ...paginate(page, pageSize)
+      // Código para futuras necessidades de fazer includes (join)
       // include: [
       //   {
       //     model: Surfista,
@@ -33,7 +36,6 @@ module.exports = {
       //     as: "surfista2"
       //   }
       // ],
-      ...paginate(page, pageSize)
     });
 
     res.json(baterias);

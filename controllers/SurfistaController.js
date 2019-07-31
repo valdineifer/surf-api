@@ -10,7 +10,7 @@ function paginate(page, pageSize) {
 
 module.exports = {
   async index(req, res) {
-    const { page = 1 } = req.query;
+    const { page = 1, pais } = req.query;
     const pageSize = 10;
 
     if (page < 1) {
@@ -20,7 +20,10 @@ module.exports = {
     }
 
     const surfistas = await Surfista.findAll({
-      attributes: { exclude: ['createdAt', 'updatedAt'] }, // Omite campos timestamp
+      where: pais ? { pais: pais } : undefined,
+      attributes: {
+        exclude: ["createdAt", "updatedAt"] // Omite campos timestamp
+      },
       ...paginate(page, pageSize)
     });
 
