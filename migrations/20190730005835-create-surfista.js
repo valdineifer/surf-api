@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable("Surfista", {
-      id: {
+      numero: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -11,10 +11,12 @@ module.exports = {
       },
       nome: {
         type: Sequelize.STRING,
+        defaultValue: false,
         allowNull: false
       },
       pais: {
         type: Sequelize.STRING,
+        defaultValue: false,
         allowNull: false
       },
       createdAt: {
