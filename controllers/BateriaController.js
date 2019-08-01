@@ -1,7 +1,3 @@
-const sequelize = require("../database");
-// const Bateria = sequelize.import("../models/Bateria");
-// const Surfista = sequelize.import("../models/Surfista");
-
 const { Bateria, Surfista } = require("../models");
 
 function paginate(page, pageSize) {

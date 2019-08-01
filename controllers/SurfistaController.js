@@ -1,5 +1,4 @@
-const sequelize = require("../database");
-const Surfista = sequelize.import("../models/Surfista");
+const { Surfista } = require("../models");
 
 function paginate(page, pageSize) {
   const offset = (page - 1) * pageSize; // Decremento para cálculo
@@ -39,14 +38,38 @@ module.exports = {
     res.status(409).json({ erro: "Este surfista já foi criado anteriormente" });
   },
 
+  async update(req, res) {
+    const { nome, pais } = req.body;
+
+    if (nome === pais) {
+      res.status(400).json({
+        erro: "Dados inválidos. Serão aceitos: nome, país"
+      });
+    }
+
+    const wasUpdated = await Surfista.update(
+      { nome, pais },
+      {
+        where: { numero: req.params.num }
+      }
+    );
+
+    const surfista = await Surfista.findOne({
+      where: { numero: req.params.num }
+    });
+
+    if (surfista) res.json(surfista);
+
+    res.status(404).json({ erro: "Este surfista não está cadastrado" });
+  },
+
   async destroy(req, res) {
     const wasDestroyed = await Surfista.destroy({
       where: { numero: req.params.num }
     });
 
-    if (wasDestroyed !== 0)
-      res.sendStatus(204);
-    
+    if (wasDestroyed !== 0) res.sendStatus(204);
+
     res.status(404).json({ erro: "Este surfista não está cadastrado." });
   }
 };
