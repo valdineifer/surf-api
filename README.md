@@ -40,4 +40,4 @@
   "surfista2_id": "Integer"
 }
 ```
-#### Response: `200` + Surfista criado
+#### Response: `200` + Bateria criada
