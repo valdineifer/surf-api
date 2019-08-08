@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    { sequelize, modelName: "Onda" }
+    { sequelize, modelName: "Onda", freezeTableName: true }
   );
   Onda.associate = function(models) {
     Onda.belongsTo(Bateria, { foreignKey: "bateriaId" });
