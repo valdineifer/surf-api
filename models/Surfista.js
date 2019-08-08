@@ -12,10 +12,12 @@ module.exports = (sequelize, DataTypes) => {
       },
       nome: {
         defaultValue: false,
+        allowNull: false,
         type: DataTypes.STRING
       },
       pais: {
         defaultValue: false,
+        allowNull: false,
         type: DataTypes.STRING
       }
     },
@@ -32,6 +34,12 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "surfista2_id",
       sourceKey: "numero",
       as: "surfista2"
+    });
+
+    Surfista.hasMany(models.Onda, {
+      as: "Ondas",
+      foreignKey: "surfistaId",
+      sourceKey: "numero"
     });
   };
   return Surfista;

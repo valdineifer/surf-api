@@ -3,17 +3,21 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
-      "Surfista",
+      "Nota",
       [
         {
-          nome: "Cadu Maverick",
-          pais: "Brasil",
+          ondaId: 2,
+          notaParcial1: 8,
+          notaParcial2: 7,
+          notaParcial3: 9,
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          nome: "João Frango",
-          pais: "Brasil",
+          ondaId: 1,
+          notaParcial1: 8,
+          notaParcial2: 8,
+          notaParcial3: 9,
           createdAt: new Date(),
           updatedAt: new Date()
         }
@@ -23,6 +27,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("Surfista", null, {});
+    return queryInterface.bulkDelete("Nota", null, {});
   }
 };

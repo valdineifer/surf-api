@@ -1,4 +1,4 @@
-const { Bateria, Surfista } = require("../models");
+const { Bateria, Nota, Surfista } = require("../models");
 
 function paginate(page, pageSize) {
   const offset = (page - 1) * pageSize; // Decremento para cálculo
@@ -35,6 +35,63 @@ module.exports = {
     });
 
     res.json(baterias);
+  },
+
+  async getWinner(req, res) {
+    const bateria = await Bateria.findOne({
+      where: { id: req.params.id }
+    });
+    if (bateria === null)
+      res.status(404).json({ erro: "Bateria não cadastrada" });
+
+    const ondas = await bateria.getOndas({
+      include: [{ model: Nota, as: "Notas" }]
+    });
+    if (ondas === null)
+      res.status(404).json({ erro: "Nenhuma onda encontrada" });
+
+    let surfistas = [];
+
+    // Percorre o vetor das ondas da bateria informada
+    ondas.map(onda => {
+      let surfista = {
+        num: onda.surfistaId,
+        notas: []
+      };
+
+      if (onda.Notas === undefined)
+        res.status(404).json({ erro: "Nenhuma nota cadastrada para a onda" });
+
+      onda.Notas.map(nota => {
+        let soma = nota.notaParcial1 + nota.notaParcial2 + nota.notaParcial3;
+        surfista.notas.push(soma / 3);
+      });
+
+      surfistas.push(surfista);
+    });
+
+    // Ordenando as notas de cada surfista
+    // E insere a soma das duas maiores notas na propriedade notaFinal
+    surfistas.map(item => {
+      item.notas.sort((a, b) => b - a);
+      item.notaFinal = item.notas[0] + item.notas[1];
+    });
+
+    let vencedor = {};
+
+    if (surfistas[0].notaFinal > surfistas[1].notaFinal) {
+      vencedor = await Surfista.findOne({
+        where: { numero: surfistas[0].num }
+      });
+    } else if (surfistas[0].notaFinal < surfistas[1].notaFinal) {
+      vencedor = await Surfista.findOne({
+        where: { numero: surfistas[1].num }
+      });
+    } else {
+      res.json({ message: "Empate!" });
+    }
+
+    res.json(vencedor);
   },
 
   async store(req, res) {
