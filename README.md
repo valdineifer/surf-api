@@ -32,6 +32,9 @@
 ### GET `/baterias`
 #### Response: `200` + Lista de todas as baterias
 
+### GET `/baterias/:id/vencedor`
+#### Response: `200` + Vencedor da bateria
+
 ### POST `/baterias`
 #### Body Request:
 ```json
@@ -41,3 +44,34 @@
 }
 ```
 #### Response: `200` + Bateria criada
+
+---
+
+### GET `/ondas`
+#### Response: `200` + Lista de todas as ondas
+
+### POST `/ondas`
+#### Body Request:
+```json
+{
+  "bateriaId": "Integer",
+  "surfistaId": "Integer"
+}
+```
+
+---
+## Em Implantação
+
+### GET `/notas`
+#### Response: `200` + Lista de todas as notas
+
+### POST `/notas`
+#### Body Request:
+```json
+{
+  "ondaId": "Integer",
+  "notaParcial1": "Float",
+  "notaParcial2": "Float",
+  "notaParcial3": "Float"
+}
+```
