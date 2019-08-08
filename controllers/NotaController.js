@@ -30,9 +30,10 @@ module.exports = {
     const nota = await Nota.findOrCreate({ where: { ...req.body } });
 
     // nota[1] -> se 'false', não foi criado porque já existe
-    if (nota[1]) res.json(nota);
-
-    res.status(400).json({ erro: "Esta nota já foi criada anteriormente" });
+    if (nota[1])
+      res.json(nota);
+    else
+      res.status(400).json({ erro: "Esta nota já foi criada anteriormente" });
   },
 
   async destroy(req, res) {
@@ -40,8 +41,9 @@ module.exports = {
       where: { id: req.params.id }
     });
 
-    if (wasDestroyed !== 0) res.sendStatus(204);
-
-    res.status(404).json({ erro: "A Nota informada não está cadastrada." });
+    if (wasDestroyed !== 0)
+      res.sendStatus(204);
+    else
+      res.status(404).json({ erro: "A Nota informada não está cadastrada." });
   }
 };
