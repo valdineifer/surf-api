@@ -6,9 +6,9 @@
 * [x] Obter todos os surfistas cadastrados
 * [x] Obter todos os surfistas de determinado país
 * [x] Criar novas baterias
-* [ ] Cadastrar novas ondas em uma bateria
-* [ ] Cadastrar novas notas em uma onda
-* [ ] Obter o vencedor de uma bateria
+* [x] Cadastrar novas ondas em uma bateria
+* [x] Cadastrar novas notas em uma onda
+* [x] Obter o vencedor de uma bateria
 
 ## Regras de Negócio
 * [ ] Uma Nota consiste na média aritmética das 3 notas parciais que a compõem

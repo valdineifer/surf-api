@@ -15,6 +15,7 @@ router.put("/surfistas/:num", SurfistaController.update);
 router.delete("/surfistas/:num", SurfistaController.destroy);
 
 router.get("/baterias", BateriaController.index);
+router.get("/baterias/:id/vencedor", BateriaController.getWinner);
 router.post("/baterias", BateriaController.store);
 
 router.get("/ondas", OndaController.index);
