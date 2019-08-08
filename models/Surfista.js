@@ -33,6 +33,12 @@ module.exports = (sequelize, DataTypes) => {
       sourceKey: "numero",
       as: "surfista2"
     });
+
+    Surfista.hasMany(models.Onda, {
+      as: "Ondas",
+      foreignKey: "surfistaId",
+      sourceKey: "numero"
+    });
   };
   return Surfista;
 };

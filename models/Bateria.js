@@ -35,6 +35,12 @@ module.exports = (sequelize, DataTypes) => {
       targetKey: "numero",
       as: "surfista2"
     });
+
+    Bateria.hasMany(models.Onda, {
+      foreignKey: "bateriaId",
+      sourceKey: "id"
+      as: "Ondas"
+    });
   };
   return Bateria;
 };
