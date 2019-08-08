@@ -12,10 +12,12 @@ module.exports = (sequelize, DataTypes) => {
       },
       nome: {
         defaultValue: false,
+        allowNull: false,
         type: DataTypes.STRING
       },
       pais: {
         defaultValue: false,
+        allowNull: false,
         type: DataTypes.STRING
       }
     },

@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       bateriaId: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
           model: Bateria,
           key: "id"
@@ -16,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       surfistaId: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
           model: Surfista,
           key: "id"
@@ -27,6 +29,11 @@ module.exports = (sequelize, DataTypes) => {
   Onda.associate = function(models) {
     Onda.belongsTo(Bateria, { foreignKey: "bateriaId" });
     Onda.belongsTo(Surfista, { foreignKey: "surfistaId" });
+
+    Onda.hasMany(models.Nota, {
+      as: "Notas",
+      foreignKey: "ondaId"
+    });
   };
   return Onda;
 };

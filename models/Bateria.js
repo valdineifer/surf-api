@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       surfista1_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
           model: Surfista,
           key: "numero"
@@ -15,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       surfista2_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
           model: Surfista,
           key: "numero"
@@ -38,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Bateria.hasMany(models.Onda, {
       foreignKey: "bateriaId",
-      sourceKey: "id"
+      sourceKey: "id",
       as: "Ondas"
     });
   };
